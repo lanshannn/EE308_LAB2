@@ -1,6 +1,7 @@
 # EE308_LAB2
   This is individual programing work.
 - Indentation
+    The indentation between higher level and lower level nesting is 4 spaces.
 - Variable naming
     I usually use English letters(a,b,c...) to name variable.
 - Maximum number of characters per line
