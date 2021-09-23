@@ -18,8 +18,6 @@ int main() {
 	int if_else_if_num=0;
 	int case_num[switch_num];
 	string data="";
-	int last_num=1;
-	int last_data=0;
 	int len=0;
 	int pos=0;
 	int poss=0;
@@ -73,7 +71,6 @@ int main() {
 	for(int i=0;i<number;i++){
 		string::size_type pos;
 		pos=data.find("elif");
-		//cout<<pos<<endl;
 		if(pos!=data.npos){
 			if_else_if_num++;
 			total_num++;
