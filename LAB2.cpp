@@ -22,7 +22,6 @@ int main() {
 	int pos=0;
 	int poss=0;
 	string str;
-	string::size_type idx;
 	stack<int>s;
 	string m[3]={"if","else","elif"};
 	string key[32]={"auto","break","case","char","const","continue","default","double","do",
@@ -35,17 +34,17 @@ int main() {
 	int else_if_number=0;
 	ifstream out("test.cpp");
 	while (!out.eof()){
-		getline(out,str);
+		getline(out,str); // read the file line by line and store as str
 		string strr="else if";
 		string::size_type idx;
 		idx=str.find(strr);
-		if(idx!=str.npos){
-			str.erase(str.find(strr)+2,3);
+		if(idx!=str.npos){ // strr in the str
+			str.erase(str.find(strr)+2,3); // change all the "else if" into "elif", it will make total_num decrease
 		}
 		for(int i=0;i<=32;i++){
 			string::size_type position;
 			position=str.find(key[i]);
-			if(position!=str.npos){
+			if(position!=str.npos){ // if key[i] in str
 				total_num++;
 				if(i==25){ // find the keyword "switch"
 					switch_num++;
@@ -73,7 +72,7 @@ int main() {
 		pos=data.find("elif");
 		if(pos!=data.npos){
 			if_else_if_num++;
-			total_num++;
+			total_num++; // "elif" make total_num decrease
 			data.erase(data.find("elif"),4);
 			if(data[data.find("elif")]==data[data.find("elif")+4]){
 				if_else_if_num--;
