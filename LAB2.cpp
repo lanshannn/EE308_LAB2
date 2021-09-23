@@ -22,7 +22,6 @@ int main() {
 	int pos=0;
 	int poss=0;
 	string str;
-	stack<int>s;
 	string m[3]={"if","else","elif"};
 	string key[32]={"auto","break","case","char","const","continue","default","double","do",
 			"else","enum","extern","float","for","goto","if","int","long","register",
