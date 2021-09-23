@@ -26,9 +26,9 @@ int main() {
 	stack<int>s;
 	string m[3]={"if","else","elif"};
 	string key[32]={"auto","break","case","char","const","continue","default","double","do",
-					"else","enum","extern","float","for","goto","if","int","long","register",
-					"return","short","signed","sizeof","static","struct","switch","typedef",
-					"union","unsigned","void","volatile","while"};
+			"else","enum","extern","float","for","goto","if","int","long","register",
+			"return","short","signed","sizeof","static","struct","switch","typedef",
+			"union","unsigned","void","volatile","while"};
 	cout << "Please enter the level = ";
 	cin >> level;
 	int c=0;
@@ -47,14 +47,14 @@ int main() {
 			position=str.find(key[i]);
 			if(position!=str.npos){
 				total_num++;
-				if(i==25){
+				if(i==25){ // find the keyword "switch"
 					switch_num++;
 					case_num[switch_num]=0;
 				}
-				if(i==2){
+				if(i==2){ // find the keyword "case"
 					case_num[switch_num]++;
 				}
-				if(i==7){
+				if(i==7){ // find the keyword "double"
 					total_num--;//double & do will repeat
 				}
 			}
@@ -63,7 +63,7 @@ int main() {
 			string::size_type id;
 			id=str.find(m[i]);
 			if(id!=str.npos){
-				data.append(m[i]);
+				data.append(m[i]); // create a new array data for "if""else if""else"
 				number++;
 			}
 		}
