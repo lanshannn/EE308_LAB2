@@ -38,84 +38,84 @@ int main() {
 	int else_if_number=0;
 	ifstream out("test.cpp");
 	while (!out.eof()){
-		  getline(out,str);
-		  string strr="else if";
-		  string::size_type idx;
-		  idx=str.find(strr);
-		  if(idx!=str.npos){
-			    str.erase(str.find(strr)+2,3);
-		  }
-		  for(int i=0;i<=32;i++){
-			    string::size_type position;
-			    position=str.find(key[i]);
-			    if(position!=str.npos){
-				  total_num++;
-				      if(i==25){
-					        switch_num++;
-					        case_num[switch_num]=0;
-				      }
-				      if(i==2){
-					        case_num[switch_num]++;
-				      }
-				      if(i==7){
-					        total_num--;//double & do will repeat
-				      }
-			    }
-		  }
-		  for(int i=0;i<3;i++){
-			    string::size_type id;
-			    id=str.find(m[i]);
-			    if(id!=str.npos){
-				      data.append(m[i]);
-				      number++;
-			    }
-		  }
+		getline(out,str);
+		string strr="else if";
+		string::size_type idx;
+		idx=str.find(strr);
+		if(idx!=str.npos){
+			str.erase(str.find(strr)+2,3);
+		}
+		for(int i=0;i<=32;i++){
+			string::size_type position;
+			position=str.find(key[i]);
+			if(position!=str.npos){
+				total_num++;
+				if(i==25){
+					switch_num++;
+					case_num[switch_num]=0;
+				}
+				if(i==2){
+					case_num[switch_num]++;
+				}
+				if(i==7){
+					total_num--;//double & do will repeat
+				}
+			}
+		}
+		for(int i=0;i<3;i++){
+			string::size_type id;
+			id=str.find(m[i]);
+			if(id!=str.npos){
+				data.append(m[i]);
+				number++;
+			}
+		}
 	}
 	//cout<<data<<endl;
 	for(int i=0;i<number;i++){
-		  string::size_type pos;
-		  pos=data.find("elif");
-		  //cout<<pos<<endl;
-		  if(pos!=data.npos){
-			    if_else_if_num++;
-			    total_num++;
-			    data.erase(data.find("elif"),4);
-			    if(data[data.find("elif")]==data[data.find("elif")+4]){
-				      if_else_if_num--;
-			    }
-		  }
+		string::size_type pos;
+		pos=data.find("elif");
+		//cout<<pos<<endl;
+		if(pos!=data.npos){
+			if_else_if_num++;
+			total_num++;
+			data.erase(data.find("elif"),4);
+			if(data[data.find("elif")]==data[data.find("elif")+4]){
+				if_else_if_num--;
+			}
+		}
 	}
 	//cout<<data<<endl;
 	for(int i=0;i<number;i++){
-		  string::size_type poss;
-		  poss=data.find("else");
-		  if(poss!=data.npos){
-			    if_else_num++;
-			    data.erase(data.find("else"),4);
-		  }
+		string::size_type poss;
+		poss=data.find("else");
+		if(poss!=data.npos){
+			if_else_num++;
+			data.erase(data.find("else"),4);
+		}
 	}
 	//cout<<data<<endl;
 	if(level>=1) {
-			printf("total num:%d\n", total_num);
-		  if(level>=2) {
-			    printf("switch num:%d\n", switch_num);
-			    printf("case num: ");
-			    for(int i=1; i<=switch_num;i++){
-				      printf("%d", case_num[i]);
-				      if(i==switch_num){
-					        printf("\n");
-				      }
-				      else{
-					        printf(" ");
-				      }
-			    }
-			    if(level>=3) {
-				      printf("if_else num:%d\n", if_else_num-if_else_if_num);
-				      if(level==4) {
-					        printf("if_else_if num:%d\n", if_else_if_num);
-				      }
-			    }
-		  }
+		printf("total num:%d\n", total_num);
+		if(level>=2) {
+			printf("switch num:%d\n", switch_num);
+			printf("case num: ");
+			for(int i=1; i<=switch_num;i++){
+				printf("%d", case_num[i]);
+				if(i==switch_num){
+					printf("\n");
+				}
+				else{
+					printf(" ");
+				}
+			}
+			if(level>=3) {
+				printf("if_else num:%d\n", if_else_num-if_else_if_num);
+				if(level==4) {
+					printf("if_else_if num:%d\n", if_else_if_num);
+				}
+			}
+		}
 	}
 	return 0;
 }
