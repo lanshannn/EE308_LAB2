@@ -6,7 +6,6 @@
 #include <functional>
 #include<cstring>
 #include<fstream>
-#include<stack>
 
 using namespace std;
 int main() {
@@ -71,7 +70,6 @@ int main() {
 			}
 		}
 	}
-	//cout<<data<<endl;
 	for(int i=0;i<number;i++){
 		string::size_type pos;
 		pos=data.find("elif");
@@ -85,7 +83,6 @@ int main() {
 			}
 		}
 	}
-	//cout<<data<<endl;
 	for(int i=0;i<number;i++){
 		string::size_type poss;
 		poss=data.find("else");
@@ -94,7 +91,6 @@ int main() {
 			data.erase(data.find("else"),4);
 		}
 	}
-	//cout<<data<<endl;
 	if(level>=1) {
 		printf("total num:%d\n", total_num);
 		if(level>=2) {
